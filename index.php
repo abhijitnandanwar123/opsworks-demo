@@ -1,5 +1,8 @@
 <?php
 // Simple PHP application for Elastic Beanstalk
+$version = "v1.0";  // ← Ye change karenge Task 3 me
+$hostname = gethostname();
+$ip = $_SERVER['SERVER_ADDR'] ?? 'Unknown';
 ?>
 <!DOCTYPE html>
 <html>
@@ -26,17 +29,33 @@
             border-radius: 5px;
             margin: 10px 0;
         }
+        .version {
+            font-size: 28px;
+            font-weight: bold;
+            color: #0066cc;
+        }
+        .highlight {
+            background: #fffacd;
+            padding: 10px;
+            border-left: 4px solid #ffa500;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>🚀 Welcome to Elastic Beanstalk!</h1>
         
+        <div class="info highlight">
+            <h3>Application Version:</h3>
+            <p class="version"><?php echo $version; ?></p>
+        </div>
+        
         <div class="info">
             <h3>Server Information:</h3>
             <p><strong>PHP Version:</strong> <?php echo phpversion(); ?></p>
             <p><strong>Server Time:</strong> <?php echo date('Y-m-d H:i:s'); ?></p>
-            <p><strong>Server Name:</strong> <?php echo $_SERVER['SERVER_NAME']; ?></p>
+            <p><strong>Hostname:</strong> <?php echo $hostname; ?></p>
+            <p><strong>IP Address:</strong> <?php echo $ip; ?></p>
         </div>
         
         <div class="info">
